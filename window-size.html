@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>window.screen : <span id="screenW"></span> <span id="screenH"></span></div>
+    <div>window.outer : <span id="outerW"></span> <span id="outerH"></span></div>
+    <div>window.inner : <span id="innerW"></span> <span id="innerH"></span></div>
+    <div>documentElement.clientWidth : <span id="clientW"></span> <span id="clientH"></span></div>
+
+    <script>
+        const windowScreenW = document.getElementById('screenW');
+        const windowScreenH = document.getElementById('screenH');
+
+        const windowOuterW = document.getElementById('outerW');
+        const windowOuterH = document.getElementById('outerH');
+
+        const windowInnerW = document.getElementById('innerW');
+        const windowInnerH = document.getElementById('innerH');
+
+        const clientW = document.getElementById('clientW');
+        const clientH = document.getElementById('clientH');
+
+        function windowSizeResult() {
+
+            windowScreenW.textContent = window.screen.width;
+            windowScreenH.textContent = window.screen.height;
+
+            windowOuterW.textContent = window.outerWidth;
+            windowOuterH.textContent = window.outerHeight;
+
+            windowInnerW.textContent = window.innerWidth;
+            windowInnerH.textContent = window.innerHeight;
+
+            clientW.textContent = window.document.documentElement.clientWidth;
+            clientH.textContent = window.document.documentElement.clientHeight;
+        }
+
+        const resizeObserver = new ResizeObserver(() => {
+            windowSizeResult()
+        });
+
+        resizeObserver.observe(document.querySelector('body'));
+
+        // window.addEventListener('resize', () => {
+        //     windowSizeResult();
+        // })
+        // windowSizeResult();
+
+    </script>
+</body>
+</html>
