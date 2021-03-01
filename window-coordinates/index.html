@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>window-coordinates</title>
-    <script type="module" src="./dist/index.js"></script>
+    <script type="module" src="./dist/index.js" defer></script>
     <style>
         body {
             background-color: black;
@@ -13,17 +13,31 @@
         #wrap .box{
             display: block;
             margin-bottom: 10px;
-            width:200px;
-            height:200px;
+            width:100px;
+            height:100px;
             background-color: bisque;
         }
         #wrap .box.color{
             background-color:blueviolet;
         }
+        nav {
+            position:fixed;
+            top:10px;
+            right:10px;
+        }
     </style>
 </head>
+
 <body>
+    <nav>
+        <button id="scrollby-y">Scroll by 100px(y)</button>
+        <button id="scrollto-y">Scroll to 100px(y)</button>
+        <button id="scrollinto-color">Scroll into color</button>
+    </nav>
     <div id="wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
@@ -39,6 +53,36 @@
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
     </div>
 </body>
+<script>
+    // after document
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log('after document callback');
+    });
+
+    // after resources (css, image...)
+    window.addEventListener('load', () => {
+        console.log('after resources callback');
+    });
+
+    // befroe unload
+    window.addEventListener('beforeunload', () => {
+        console.log('beforeunload');
+    });
+
+    // after unload resources (css, image...)
+    window.addEventListener('unload', () => {
+        console.log('unload!!!');
+    });
+</script>
+
 </html>
