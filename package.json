@@ -1,0 +1,25 @@
+{
+  "name": "ts-work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksy8230/web-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/ksy8230/web-api#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint": "^7.19.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.1.3"
+  }
+}

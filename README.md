@@ -15,3 +15,5 @@
 - window.outer : 브라우저 전체의 사이즈
 - window.inner : 스크롤바를 포함한 페이지가 표기되는 사이즈
 - documentElement.clientWidth : 스크롤바를 제외한 순수 페이지 영역 사이즈
+- clientY : 브라우저의 기준에서 상위부터 시작
+- pageY : 페이지(문서)의 기준에서 상위부터 시작
