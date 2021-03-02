@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .wrap {
+        text-align: center;
+      }
+      .wrap div {
+        width:auto;
+        height: 250px;
+        margin:0 auto;
+        background-repeat: no-repeat;
+      }
+      .wrap div.carrot {
+        background-image: url('./img/carrot.png');
+      }
+      .wrap div.rabbit {
+        background-image: url('./img/rabbit.png');
+      }
+      button {
+        outline: none;
+        background-color: coral;
+        color:#fff;
+        border:0;
+        padding:10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="find">find rabbit</button>
+    <div class="wrap">
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="rabbit"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+      <div class="carrot"></div>
+    </div>
+    <script>
+      const rabbit = document.querySelector('.rabbit');
+      const button = document.getElementById('find');
+
+      button.addEventListener('click', () => {
+        rabbit.scrollIntoView({ behavior:'smooth', block:'center' })
+      })
+
+    </script>
+  </body>
+</html>
