@@ -1,8 +1,5 @@
 .move {
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
     width:120px;
     height:120px;
     background-image: url(./img//target.png);
@@ -10,34 +7,30 @@
 }
 .move p {
     position: absolute;
-    top:100%;
-    left:100%;
+    top:80%;
+    left:80%;
     color:blanchedalmond;
     display: flex;
 }
 .move p span {
     margin-right: 10px;
-    top:50%;
-    left:50%;
 }
 
 body {
     background-color: black;
     overflow: hidden;
+    margin:0;
+    padding:0;
 }
 
 .vertical-line {
     position: absolute;
-    left:50%;
-    top:0;
     width:1px;
     height: 100vh;
     background: blanchedalmond;
 }
 .horizon-line {
     position: absolute;
-    left:0%;
-    top:50%;
     width:100%;
     height: 1px;
     background: blanchedalmond;
