@@ -77,6 +77,27 @@
       const section = document.querySelector('section');
       const h2 = document.querySelector('h2');
       section.insertBefore(img, h2); // put img before h2 tag in section
+      
+      /**
+       * innerHTML vs element
+      */
+     // 한번 업데이트한 다음에 다시 변경할 일이 없다면 innerHTML을 사용하는 것이 좋다
+     // 부분 변경이 일어나야하는 경우라면 innerHTML보다는 document.create와 같은 api를 이용하는 것이 효율적이다
+
+     /**
+      * innerHTML : innerHTML은 요소 안에 있는 모든 태그의 요소를 텍스트 형태로 읽어오고 저장 가능하다.
+      * (렌더링 효율 관점) 이런 식으로 사용하면 변경 사항이 일어날 때마다 DOM Tree와 Render Tree를 만들어야한다는 점 유의 ❗
+      * (보안 관점) 사용자에게서 텍스트 인풋을 받아와야하는 경우에는 보안상 문제가 있기 때문에 절대 사용하지 않는다
+      * (해커가 자바스크립트 코드가 포함된 html태그들을 innerHTML를 이용해 넣을 수 있기 때문)
+     */
+
+     /**
+      * textContent : 노드에서 값을 가져올 때 텍스트의 내용만 가져온다.
+      * (렌더링 효율 관점) 문자열의 데이터만 가져오기 때문에 단순히 문자를 바꾸거나 읽어올 때는 textContent를 사용하는 것이 성능상 좋다 ❗
+      * (보안 관점) innerHTML과 달리 텍스트만 가져오기 때문에 단순 문자 치환 혹은 추가 작업을 할 떄는 innerHTML을 대체해서 사용한다
+     */
+
+      section.innerHTML=`<h2>test section</h2><img src="./img/rabbit.png" alt="">`;
 
     </script>
   </body>
