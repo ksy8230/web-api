@@ -18,6 +18,7 @@
       horizonLine.style.transform = `translateY(${y}px)`;
 
       elementx.textContent = `${x}px`;
+
       elementy.textContent = `${y}px`;
     });
   });

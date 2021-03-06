@@ -60,6 +60,10 @@
       <div class="carrot"></div>
       <div class="carrot"></div>
     </div>
+    <section>
+      <h2>test section</h2>
+    </section>
+    <img src="./img/rabbit.png" alt="">
     <script>
       const rabbit = document.querySelector('.rabbit');
       const button = document.getElementById('find');
@@ -67,6 +71,12 @@
       button.addEventListener('click', () => {
         rabbit.scrollIntoView({ behavior:'smooth', block:'center' })
       })
+
+      const img = document.querySelector('img[src="./img/rabbit.png"');
+      console.log(img)
+      const section = document.querySelector('section');
+      const h2 = document.querySelector('h2');
+      section.insertBefore(img, h2); // put img before h2 tag in section
 
     </script>
   </body>
