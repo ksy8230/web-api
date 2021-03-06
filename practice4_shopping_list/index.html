@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window-coordinates</title>
+    <script type="module" src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+
+<body>
+    <div class="list-wrap">
+
+        <header class="list-wrap__header">
+            <h1>Shopping List</h1>
+        </header>
+
+        <ul class="list-wrap__content">
+        </ul>
+        
+        <footer class="list-wrap__footer">
+            <div class="list-input">
+                <input type="text" />
+            </div>
+            <button class="submit">+</button>
+        </footer>
+        
+    </div>
+</body>
+<script>
+    // after document
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log('after document callback');
+    });
+
+    // after resources (css, image...)
+    window.addEventListener('load', () => {
+        console.log('after resources callback');
+    });
+
+    // befroe unload
+    window.addEventListener('beforeunload', () => {
+        console.log('beforeunload');
+    });
+
+    // after unload resources (css, image...)
+    window.addEventListener('unload', () => {
+        console.log('unload!!!');
+    });
+</script>
+
+</html>
