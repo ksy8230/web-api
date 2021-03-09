@@ -4,7 +4,7 @@ const submitButton = document.querySelector('button.submit');
 
 // add item
 function onAdd() {
-  const text = input?.value;
+  const text = input?.value.trim(); // Remove left and right spaces
   if (text === '') {
     resetInput();
     return;
@@ -23,12 +23,6 @@ function createItem(text: string) {
                     <button class="list-item__delete">x</button>
                 </li>`;
   const content = li.querySelector('.list-item__text');
-  const deleteButton = li.querySelector('.list-item__delete');
-  deleteButton?.addEventListener('click', (e) => {
-    const target = e.target as HTMLButtonElement;
-    const deleteTarget = target.parentElement as HTMLElement;
-    deleteTarget.remove();
-  });
   if (content) {
     content.textContent = text;
   }
@@ -49,4 +43,10 @@ input?.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     onAdd();
   }
+});
+
+// event delegate to ulContainer for deleting li
+ulContainer?.addEventListener('click', (e) => {
+  const tobeDeleteLi = (e.target as HTMLElement).parentElement;
+  tobeDeleteLi?.remove();
 });
