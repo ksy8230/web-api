@@ -1,0 +1,117 @@
+:root {
+    --background-width:800px;
+    --background-height:500px;
+    --background-color:#222;
+} 
+
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+button {
+    cursor: pointer;
+    border:0;
+    outline: 0;
+}
+.game {
+    display:flex;
+    margin:20px auto;
+    flex-direction: column;
+    background: url(img/background.png) center/cover;
+    width: var(--background-width);
+    height: var(--background-height);
+    border-radius: 20px;
+}
+
+.game__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding:20px;
+
+}
+
+.game__button {
+    width:60px;
+    height:60px;
+    background-color: wheat;
+    border:4px solid #222;
+    font-size: 24px;
+    transition: transform 400ms ease-in;
+}
+.game__button:hover {
+    transform: scale(1.1);
+}
+
+.game__timer {
+    width:100px;
+    text-align: center;
+    background-color: whitesmoke;
+    font-size: 32px;
+    line-height: 40px;
+    margin-top:8px;
+    border-radius: 20px;
+    border:4px solid #222;
+}
+
+.game__score {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color:tomato;
+    color:#fff;
+    font-size: 32px;
+    margin-top:8px;
+    border-radius: 50px;
+    border:4px solid #222;
+}
+
+.game__field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top:40px;
+    text-align: left;
+}
+
+.game__field img {
+    position: absolute;
+}
+
+.pop-up {
+    padding:20px;
+    border-radius: 20px;
+    width: 400px;
+    height: 124px;
+    margin: auto;
+    background-color: #00000090;
+    color: white;
+    transform: translateY(-150%);
+    text-align: center;
+}
+
+.pop-up--hide {
+    display: none;
+}
+.pop-up__refresh {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 60px;
+    border:4px solid black;
+}
+
+.pop-up__message {
+    display: block;
+    margin-top:10px;
+    font-size: 30px;
+
+}
