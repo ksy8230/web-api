@@ -2,14 +2,27 @@
 
 import Popup from './popup.js';
 import * as sound from './sound.js';
-import Game from './game.js';
+import GameBuilder from './game.js';
 
 const CARROT_SIZE = 80;
 const CARROT_COUNT = 4;
 const BUG_COUNT = 8;
 const GAME_DURATION = 5;
 
-const game = new Game(GAME_DURATION, CARROT_COUNT, BUG_COUNT, CARROT_SIZE);
+// const game = new Game(GAME_DURATION, CARROT_COUNT, BUG_COUNT, CARROT_SIZE);
+
+/**
+ * 빌더 패턴
+ * 상수값들을 매개변수로 그대로 넣어주지 않고
+ * 순서와 상관없이 Game 클래스에 변수값을 세팅해 주기 위해
+ * GameBuilder 안에 변수값을 세팅해주는 함수들을 만들어준다
+ * => 이 함수들은 GameBuilder를 리턴하기 때문에 메서드체인 형식으로 작성이 가능
+ * => GameBuild의 build 함수에서 Game 인스턴스를 리턴
+ * (이 인스턴스에 순서가 고정되어 있어서 사용자는 순서 신경 안 쓰고 세팅 함수만 사용하면 되니 편하고 안전하다)
+ *
+ */
+const game = new GameBuilder().withGameDuration(5).withCarrotCount(3).withBugCount(5).withCarrotSize(80).build();
+
 const gameFinishBanner = new Popup();
 
 game.setGameStopListener((reason) => {
