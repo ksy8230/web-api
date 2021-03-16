@@ -2,14 +2,7 @@
 
 import Popup from './popup.js';
 import * as sound from './sound.js';
-import GameBuilder from './game.js';
-
-const CARROT_SIZE = 80;
-const CARROT_COUNT = 4;
-const BUG_COUNT = 8;
-const GAME_DURATION = 5;
-
-// const game = new Game(GAME_DURATION, CARROT_COUNT, BUG_COUNT, CARROT_SIZE);
+import GameBuilder, { Reason } from './game.js';
 
 /**
  * 빌더 패턴
@@ -28,13 +21,13 @@ const gameFinishBanner = new Popup();
 game.setGameStopListener((reason) => {
   let message = '';
   switch (reason) {
-    case 'cancel':
+    case Reason.cancel:
       message = 'Wanna Replay? 🙃';
       break;
-    case 'win':
+    case Reason.win:
       message = 'You win ✨';
       break;
-    case 'lose':
+    case Reason.lose:
       message = 'You lost...😣';
 
       break;

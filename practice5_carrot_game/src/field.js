@@ -1,6 +1,10 @@
 'use strict';
 import * as sound from './sound.js';
 
+export const ItemType = Object.freeze({
+  carrot: 'carrot',
+  bug: 'bug',
+});
 export default class Field {
   constructor(carrotCount, bugCount, carrotSize) {
     this.carrotSize = carrotSize;
@@ -34,8 +38,8 @@ export default class Field {
 
   init() {
     this.gameField.innerHTML = '';
-    this._addItem('carrot', this.carrotCount, 'img/carrot.png');
-    this._addItem('bug', this.bugCount, 'img/bug.png');
+    this._addItem(ItemType.carrot, this.carrotCount, 'img/carrot.png');
+    this._addItem(ItemType.bug, this.bugCount, 'img/bug.png');
   }
 
   // class Field안에 있는 멤버변수 onItemClick에 전달 받은 callback 인자를 할당
@@ -45,14 +49,14 @@ export default class Field {
 
   onFieldClickListener = (event) => {
     const target = event.target;
-    if (target.className === 'carrot') {
+    if (target.className === ItemType.carrot) {
       target.remove();
       sound.playCarrot();
       // ❗ this는 바인드 시켜주지 않으면 undefiend
-      this.onItemClick && this.onItemClick('carrot');
+      this.onItemClick && this.onItemClick(ItemType.carrot);
     }
-    if (target.className === 'bug') {
-      this.onItemClick && this.onItemClick('bug');
+    if (target.className === ItemType.bug) {
+      this.onItemClick && this.onItemClick(ItemType.bug);
     }
   };
 }

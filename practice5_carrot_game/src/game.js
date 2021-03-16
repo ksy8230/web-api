@@ -1,6 +1,12 @@
 import Field from './field.js';
 import * as sound from './sound.js';
 
+export const Reason = Object.freeze({
+  win: 'win',
+  lose: 'lose',
+  cancel: 'cancel',
+});
+
 // builder Pattern
 export default class GameBuilder {
   constructor() {
@@ -85,7 +91,7 @@ class Game {
   finishGame(win) {
     this.started = false;
     this.stopTimer();
-    this.onGameStop && this.onGameStop(win ? 'win' : 'lose');
+    this.onGameStop && this.onGameStop(win ? Reason.win : Reason.lose);
     // this.gameFinishBanner.showWithText(win ? 'You win ✨' : 'You lost...😣');
     if (win) {
       sound.playWin();
@@ -102,7 +108,7 @@ class Game {
   stopGame() {
     this.started = false;
     this.stopTimer();
-    this.onGameStop && this.onGameStop('cancel');
+    this.onGameStop && this.onGameStop(Reason.cancel);
     // this.gameFinishBanner.showWithText('Wanna Replay? 🙃');
     sound.stopAlert();
   }
