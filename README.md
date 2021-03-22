@@ -145,3 +145,26 @@ defer 옵션을 사용해서 js 파일을 추가하면 html 문서가 전부 파
 `beforeunload`: 
 unload이벤트가 실행되기 이번에 발생하는 이벤트이다.
 
+### 렌더 시퀀스에 존재하는 requestAnimaationFrame API
+> 애니메이션 동작 적용 함수를 사용할 때 RAF(RequestAnimationFrame)을 권장하는 이유
+
+```js
+button.addEventListener('click', () => {
+    requestAnimationFrame(() => {
+        document.body.style.backgroundColor = 'red'
+    });
+
+    setTimeout(() => {
+        requestAnimationFrame(() => {
+            document.body.style.backgroundColor = 'blue'
+        });
+        requestAnimationFrame(() => {
+            document.body.style.backgroundColor = 'green'
+        });
+    }, 100);
+});
+```
+사용자가 직접 setTimeout을 콜백 함수로 이용해 태스크큐에 넣은 후 적용하기 보다는   
+(렌더 시퀀스 안에 있는) RAF에게 이벤트 적용권을 넘겨줘서 렌더가 실행될 때 자연스럽게 업데이트 되도록 하는 것이 최적화에 도움이 되기 때문이다.
+
+**"즉, 정말 화면이 업데이트될 때마다 애니메이션을 위한 계산과 스타일 변경을 해 주도록 하자"**
